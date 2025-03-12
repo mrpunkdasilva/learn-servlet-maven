@@ -1,7 +1,17 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-markup.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-none.min.js"></script><style>
         .article {
             position: relative;
             padding-bottom: 24px;
+        }
+        
+
+        .bordered-element-rounded {
+            border: 1px solid #c4c4c4;
+            border-radius: 7px;
+            overflow: hidden;
         }
         
 
@@ -17,6 +27,17 @@
         }
         
 
+        .code-block {
+            overflow: hidden;
+            position: relative;
+            padding: 0;
+            border-radius: 8px;
+            font-variant-ligatures: none;
+            background-color: rgba(25, 25, 28, .05);
+            word-break: break-all;
+        }
+        
+
         .container {
             max-width: 100%;
             overflow: hidden;
@@ -25,10 +46,22 @@
         }
         
 
+        .control {
+            color: #19191c;
+            font-size: 16px;
+            font-weight: 670;
+        }
+        
+
         .detached {
             margin-block-start: 0;
             margin-block-end: 0;
             margin-bottom: 8px;
+        }
+        
+
+        .flex {
+            display: flex;
         }
         
 
@@ -49,12 +82,107 @@
         }
         
 
+        .inline-code {
+            border-radius: 4px;
+            display: inline;
+            padding: 2px 1px;
+            font-family: JetBrains Sans,monospace;
+            background: #e6e6e6;
+        }
+        
+
+        .keystroke {
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            min-width: 22px;
+            height: 22px;
+            margin: 0 1px 2px;
+            padding: 3px;
+            border: 1px solid rgba(25, 25, 28, .2);
+            border-radius: 4px;
+            white-space: nowrap;
+            background: rgba(25, 25, 28, .05);
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1em;
+            transition: border-color .5s;
+        }
+        
+
+        .keystroke-after:not(:last-child):after {
+            content: '+';
+            font-size: 10px;
+        }
+        
+
+        .list {
+            list-style-type: disc;
+            padding-left: 0;
+            margin-left: 15px;
+        }
+        
+
+        .list-item {
+            margin-top: 6px;
+            margin-bottom: 6px;
+            margin-left: 4px;
+        }
+        
+
         .main-title {
             padding-bottom: 24px;
             margin-top: 0;
             font-size: 40px;
             margin-block-start: 0;
             margin-block-end: 0;
+        }
+        
+
+        .prism {
+            page-break-inside: avoid;
+        }
+        
+        /* PrismJS 1.29.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+abap+abnf+actionscript+ada+agda+al+antlr4+apacheconf+apex+apl+applescript+aql+arduino+arff+armasm+arturo+asciidoc+aspnet+asm6502+asmatmel+autohotkey+autoit+avisynth+avro-idl+awk+bash+basic+batch+bbcode+bbj+bicep+birb+bison+bnf+bqn+brainfuck+brightscript+bro+bsl+c+csharp+cpp+cfscript+chaiscript+cil+cilkc+cilkcpp+clojure+cmake+cobol+coffeescript+concurnas+csp+cooklang+coq+crystal+css-extras+csv+cue+cypher+d+dart+dataweave+dax+dhall+diff+django+dns-zone-file+docker+dot+ebnf+editorconfig+eiffel+ejs+elixir+elm+etlua+erb+erlang+excel-formula+fsharp+factor+false+firestore-security-rules+flow+fortran+ftl+gml+gap+gcode+gdscript+gedcom+gettext+gherkin+git+glsl+gn+linker-script+go+go-module+gradle+graphql+groovy+haml+handlebars+haskell+haxe+hcl+hlsl+hoon+http+hpkp+hsts+ichigojam+icon+icu-message-format+idris+ignore+inform7+ini+io+j+java+javadoc+javadoclike+javastacktrace+jexl+jolie+jq+jsdoc+js-extras+json+json5+jsonp+jsstacktrace+js-templates+julia+keepalived+keyman+kotlin+kumir+kusto+latex+latte+less+lilypond+liquid+lisp+livescript+llvm+log+lolcode+lua+magma+makefile+markdown+markup-templating+mata+matlab+maxscript+mel+mermaid+metafont+mizar+mongodb+monkey+moonscript+n1ql+n4js+nand2tetris-hdl+naniscript+nasm+neon+nevod+nginx+nim+nix+nsis+objectivec+ocaml+odin+opencl+openqasm+oz+parigp+parser+pascal+pascaligo+psl+pcaxis+peoplecode+perl+php+phpdoc+php-extras+plant-uml+plsql+powerquery+powershell+processing+prolog+promql+properties+protobuf+pug+puppet+pure+purebasic+purescript+python+qsharp+q+qml+qore+r+racket+cshtml+jsx+tsx+reason+regex+rego+renpy+rescript+rest+rip+roboconf+robotframework+ruby+rust+sas+sass+scss+scala+scheme+shell-session+smali+smalltalk+smarty+sml+solidity+solution-file+soy+sparql+splunk-spl+sqf+sql+squirrel+stan+stata+iecst+stylus+supercollider+swift+systemd+t4-templating+t4-cs+t4-vb+tap+tcl+tt2+textile+toml+tremor+turtle+twig+typescript+typoscript+unrealscript+uorazor+uri+v+vala+vbnet+velocity+verilog+vhdl+vim+visual-basic+warpscript+wasm+web-idl+wgsl+wiki+wolfram+wren+xeora+xml-doc+xojo+xquery+yaml+yang+zig&plugins=highlight-keywords */
+code[class*=language-],pre[class*=language-]{color:#000;background:0 0;text-shadow:0 1px #fff;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre-wrap;word-spacing:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{text-shadow:none;background:#b3d4fc}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:16px;margin:0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
+
+        
+
+        .prompt {
+            flex-direction: row;
+            letter-spacing: .0015em;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        
+
+        .prompt-content {
+            padding: 15px;
+            overflow: hidden;
+            flex: 1 1 auto;
+        }
+        
+
+        .prompt-content-p p {
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+
+        .prompt-icon {
+            flex: 0 0 auto;
+            margin-left: 15px;
+            margin-top: 15px;
+            fill: currentcolor;
+            width: 24px;
+            height: 24px;
         }
         
 
@@ -198,7 +326,52 @@
         }
         
 
+        .tip {
+            background-color: rgba(25, 25, 28, .05);
+        }
+        
+
         .topic {
             page-break-before: always;
         }
-        </style><title>pdfSourceL</title></head><body><div><section class="topic"><div><article class="article"><h1 class="main-title">Table of Contents</h1><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#-512279951">Learn Servlet - Module 1</a></div><div class="page">2</div></div></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="-512279951">Learn Servlet - Module 1</h1><section class="detached"><h2 id="-512279951#criando-o-projeto-maven-archetype-no-intellij" data-toc="criando-o-projeto-maven-archetype-no-intellij#starter-topic.md-criando-o-projeto-maven-archetype-no-intellij">Criando o projeto Maven Archetype no IntelliJ</h2><div class="container"><figure class="image-container"><img class="center image image-size" id="-512279951#-96lewb_4" alt="Tela de cria&amp;ccedil;&amp;atilde;o de projeto Maven no IntelliJ, mostrando a sele&amp;ccedil;&amp;atilde;o do archetype e outras configura&amp;ccedil;&amp;otilde;es." title="Tela de cria&amp;ccedil;&amp;atilde;o de projeto Maven no IntelliJ, mostrando a sele&amp;ccedil;&amp;atilde;o do archetype e outras configura&amp;ccedil;&amp;otilde;es." src="/home/MrPunkdaSilva/IdeaProjects/despesas-web/Writerside/images/1741808966839.png" width="800" height="704"><figcaption class="center-text">Tela de cria&ccedil;&atilde;o de projeto Maven no IntelliJ, mostrando a sele&ccedil;&atilde;o do archetype e outras configura&ccedil;&otilde;es.</figcaption></figure></div></section></article></div></section></div></body></html>
+        </style><title>pdfSourceL</title></head><body><div><section class="topic"><div><article class="article"><h1 class="main-title">Table of Contents</h1><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#-512279951">Learn Servlet - Module 1</a></div><div class="page">2</div></div></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="-512279951">Learn Servlet - Module 1</h1><section class="detached"><h2 id="-512279951#criando-o-projeto-maven-archetype-no-intellij" data-toc="criando-o-projeto-maven-archetype-no-intellij#starter-topic.md-criando-o-projeto-maven-archetype-no-intellij">Criando o projeto Maven Archetype no IntelliJ</h2><div class="container"><figure class="image-container"><img class="center image image-size" id="-512279951#qk17s6_7" alt="Tela de cria&amp;ccedil;&amp;atilde;o de projeto Maven no IntelliJ, mostrando a sele&amp;ccedil;&amp;atilde;o do archetype e outras configura&amp;ccedil;&amp;otilde;es." title="Tela de cria&amp;ccedil;&amp;atilde;o de projeto Maven no IntelliJ, mostrando a sele&amp;ccedil;&amp;atilde;o do archetype e outras configura&amp;ccedil;&amp;otilde;es." src="/home/MrPunkdaSilva/IdeaProjects/despesas-web/Writerside/images/1741808966839.png" width="800" height="704"><figcaption class="center-text">Tela de cria&ccedil;&atilde;o de projeto Maven no IntelliJ, mostrando a sele&ccedil;&atilde;o do archetype e outras configura&ccedil;&otilde;es.</figcaption></figure></div></section><section class="detached"><h2 id="-512279951#estrutura-de-pastas-criada" data-toc="estrutura-de-pastas-criada#starter-topic.md-estrutura-de-pastas-criada">Estrutura de Pastas Criada</h2><p id="-512279951#qk17s6_8">A estrutura padr&atilde;o de pastas criada pelo Maven Archetype para um web app inclui a pasta <span class="inline-code" id="-512279951#qk17s6_13">WEB-INF</span>, onde ficam as configura&ccedil;&otilde;es do aplicativo web.</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-512279951#qk17s6_9" alt="Estrutura de pastas padr&amp;atilde;o do Maven Archetype, destacando a pasta WEB-INF." title="Estrutura de pastas padr&amp;atilde;o do Maven Archetype, destacando a pasta WEB-INF." src="/home/MrPunkdaSilva/IdeaProjects/despesas-web/Writerside/images/1741809783581.png" width="185" height="152"><figcaption class="center-text">Estrutura de pastas padr&atilde;o do Maven Archetype, destacando a pasta WEB-INF.</figcaption></figure></div><p id="-512279951#qk17s6_10">No entanto, ainda precisamos criar uma pasta adicional para armazenar o c&oacute;digo da aplica&ccedil;&atilde;o. Para isso, clique com o <span class="" id="-512279951#qk17s6_14"><span class="keystroke-after"><kbd class="keystroke">BOTÃO</kbd></span><span class="keystroke-after"><kbd class="keystroke">DIREITO</kbd></span><span class="keystroke-after"><kbd class="keystroke">DO</kbd></span><span class="keystroke-after"><kbd class="keystroke">MOUSE</kbd></span></span> na pasta <span class="inline-code" id="-512279951#qk17s6_15">main</span>, selecione <span class="inline-code" id="-512279951#qk17s6_16">New &gt; Directory</span> e digite <span class="inline-code" id="-512279951#qk17s6_17">java</span>. Provavelmente, aparecer&aacute; um popup para inserir o nome da pasta, e a IDE pode sugerir automaticamente o nome correto. Pressione Enter para confirmar.</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-512279951#qk17s6_11" alt="Cria&amp;ccedil;&amp;atilde;o da pasta 'java' dentro da estrutura do projeto." title="Cria&amp;ccedil;&amp;atilde;o da pasta 'java' dentro da estrutura do projeto." src="/home/MrPunkdaSilva/IdeaProjects/despesas-web/Writerside/images/1741809988176.png" width="345" height="125"><figcaption class="center-text">Cria&ccedil;&atilde;o da pasta 'java' dentro da estrutura do projeto.</figcaption></figure></div><section class="detached"><h3 id="-512279951#entendendo-a-estrutura" data-toc="entendendo-a-estrutura#starter-topic.md-entendendo-a-estrutura">Entendendo a estrutura</h3><p id="-512279951#qk17s6_18">O Maven Archetype para um web app cria uma estrutura de pastas organizada para facilitar o desenvolvimento. Aqui est&aacute; uma explica&ccedil;&atilde;o das principais pastas:</p><ul class="list" id="-512279951#qk17s6_19" start="1"><li class="list-item" id="-512279951#qk17s6_22"><p id="-512279951#qk17s6_28"><span class="control" id="-512279951#qk17s6_29">src/main/java</span>: Onde voc&ecirc; coloca o c&oacute;digo-fonte Java da aplica&ccedil;&atilde;o. Esta pasta &eacute; criada manualmente, como descrito anteriormente.</p></li><li class="list-item" id="-512279951#qk17s6_23"><p id="-512279951#qk17s6_30"><span class="control" id="-512279951#qk17s6_31">src/main/resources</span>: Armazena recursos como arquivos de configura&ccedil;&atilde;o que s&atilde;o usados pelo c&oacute;digo Java.</p></li><li class="list-item" id="-512279951#qk17s6_24"><p id="-512279951#qk17s6_32"><span class="control" id="-512279951#qk17s6_33">src/main/webapp</span>: Cont&eacute;m os arquivos da aplica&ccedil;&atilde;o web, como p&aacute;ginas JSP, arquivos HTML, CSS, JavaScript, etc.</p></li><li class="list-item" id="-512279951#qk17s6_25"><p id="-512279951#qk17s6_34"><span class="control" id="-512279951#qk17s6_36">src/main/webapp/WEB-INF</span>: Esta pasta &eacute; crucial para a configura&ccedil;&atilde;o do aplicativo web. Ela cont&eacute;m:</p><ul class="list" id="-512279951#qk17s6_35" start="1"><li class="list-item" id="-512279951#qk17s6_37"><p id="-512279951#qk17s6_39"><span class="control" id="-512279951#qk17s6_40">web.xml</span>: O arquivo de configura&ccedil;&atilde;o do servlet, onde voc&ecirc; define servlets, filtros, listeners, etc.</p></li><li class="list-item" id="-512279951#qk17s6_38"><p id="-512279951#qk17s6_41">Outras configura&ccedil;&otilde;es espec&iacute;ficas do servidor ou da aplica&ccedil;&atilde;o.</p></li></ul></li><li class="list-item" id="-512279951#qk17s6_26"><p id="-512279951#qk17s6_42"><span class="control" id="-512279951#qk17s6_43">src/test/java</span>: Onde voc&ecirc; coloca os testes unit&aacute;rios para o seu c&oacute;digo Java.</p></li><li class="list-item" id="-512279951#qk17s6_27"><p id="-512279951#qk17s6_44"><span class="control" id="-512279951#qk17s6_45">pom.xml</span>: O arquivo de configura&ccedil;&atilde;o do Maven, onde voc&ecirc; define as depend&ecirc;ncias, plugins, e outras configura&ccedil;&otilde;es do projeto.</p></li></ul><p id="-512279951#qk17s6_20">Essa estrutura ajuda a separar o c&oacute;digo-fonte, recursos, e configura&ccedil;&otilde;es, tornando o projeto mais organizado e f&aacute;cil de gerenciar.</p><div class="detached code-block" id="-512279951#qk17s6_21"><pre><code class="language-none">src
+├── main
+│   ├── java
+│   ├── resources
+│   └── webapp
+│       └── WEB-INF
+│           └── web.xml
+└── test
+    └── java
+pom.xml</code></pre></div></section></section><section class="detached"><h2 id="-512279951#tudo-precisa-de-um-servidor" data-toc="tudo-precisa-de-um-servidor#starter-topic.md-tudo-precisa-de-um-servidor">Tudo precisa de um servidor</h2><p id="-512279951#qk17s6_46">Para fazermos o nosso <span class="control" id="-512279951#qk17s6_51">web app</span> em java funcionar &eacute; preciso que utilizemos um servidor, existem dezenas de servidores, eles variam em seus tipos como mulheres variam, tem as mais morenas as mais loiras, etc.</p><p id="-512279951#qk17s6_47">Neste caso eles variam dois aspectos - para nossa abordagem iremos utilizar somente esses dois aspectos:</p><ul class="list" id="-512279951#qk17s6_48" start="1"><li class="list-item" id="-512279951#qk17s6_52"><p id="-512279951#qk17s6_54">Tem os servidores mais gordinhas, aquelas que vem com gordura a mais, ou seja, fun&ccedil;&otilde;es do Java EE a mais, coisa que s&oacute; &eacute; preciso normalmente quando tu quer algo mais robusto</p></li><li class="list-item" id="-512279951#qk17s6_53"><p id="-512279951#qk17s6_55">Tem os mais slim, que s&atilde;o os aquelas que se adequa ao que queremos tendo em vista que n&atilde;o possuem todas as dezenas de coisas que o Java EE oferece, ou seja s&atilde;o menos robustos</p></li></ul><p id="-512279951#qk17s6_49">Vamos utilizar o Jet</p><section class="detached"><h3 id="-512279951#instalando-o-plugin-do-jet-no-intellij" data-toc="instalando-o-plugin-do-jet-no-intellij#starter-topic.md-instalando-o-plugin-do-jet-no-intellij">Instalando o plugin do Jet no Intellij</h3><p id="-512279951#qk17s6_56">Adicione estas linhas dentro do <span class="inline-code" id="-512279951#qk17s6_63">pom.xml</span> para fazermos o uso do plugin do Jet:</p><div class="detached code-block" id="-512279951#qk17s6_57"><pre><code class="language-markup">&lt;build&gt;
+    &lt;finalName&gt;despesas-web&lt;/finalName&gt;
+
+    &lt;!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-maven-plugin --&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.eclipse.jetty&lt;/groupId&gt;
+            &lt;artifactId&gt;jetty-maven-plugin&lt;/artifactId&gt;
+            &lt;version&gt;11.0.24&lt;/version&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;</code></pre></div><p id="-512279951#qk17s6_58">Ao atualizar as dependencias do Maven, com <span class="" id="-512279951#qk17s6_64"><span class="keystroke-after"><kbd class="keystroke">CTRL</kbd></span></span> + <span class="" id="-512279951#qk17s6_65"><span class="keystroke-after"><kbd class="keystroke">SHIFT</kbd></span></span> + <span class="" id="-512279951#qk17s6_66"><span class="keystroke-after"><kbd class="keystroke">O</kbd></span></span></p><div class="container"><figure class="image-container"><img class="center image image-size" id="-512279951#qk17s6_59" alt="1741812889774.png" title="1741812889774.png" src="/home/MrPunkdaSilva/IdeaProjects/despesas-web/Writerside/images/1741812889774.png" width="450" height="639"><figcaption class="center-text">1741812889774.png</figcaption></figure></div><p id="-512279951#qk17s6_60">Ao apertar em <span class="inline-code" id="-512279951#qk17s6_67">Run</span> v&aacute; ao navegador e acesse <span class="inline-code" id="-512279951#qk17s6_68">http://localhost:8080/</span>:</p><div class="container"><figure class="image-container"><img class="center image image-size" id="-512279951#qk17s6_61" alt="1741812998167.png" title="1741812998167.png" src="/home/MrPunkdaSilva/IdeaProjects/despesas-web/Writerside/images/1741812998167.png" width="1919" height="909"><figcaption class="center-text">1741812998167.png</figcaption></figure></div><blockquote class="prompt flex bordered-element-rounded tip detached">
+  <svg xmlns="http://www.w3.org/2000/svg" class="prompt-icon">
+    <path d="M12.946 3.552L21.52 18.4c.424.735.33 1.6-.519 1.6H3.855c-.85 0-1.817-.865-1.392-1.6l8.573-14.848a1.103 1.103 0 0 1 1.91 0zm.545 12.948a1.5 1.5 0 1 0-1.5 1.5 1.5 1.5 0 0 0 1.5-1.5zM13 8h-2v5h2z"></path>
+  </svg>
+  <div class="prompt-content prompt-content-p"><p id="-512279951#qk17s6_69">A porta padr&atilde;o que o Jetty usa &eacute; a <span class="inline-code" id="-512279951#qk17s6_70">8080</span>, mas caso estiver em uso &eacute; possivel mudar para que ele acesse outra porta</p></div>
+</blockquote>
+</section></section><section class="detached"><h2 id="-512279951#definindo-contextos" data-toc="definindo-contextos#starter-topic.md-definindo-contextos">Definindo contextos</h2><p id="-512279951#qk17s6_71">Para definirmos os contextos, seria como definir as aplica&ccedil;&otilde;es, podemos fazer com est&aacute; configura&ccedil;&atilde;o no <span class="inline-code" id="-512279951#qk17s6_73">pom.xml</span>:</p><div class="detached code-block" id="-512279951#qk17s6_72"><pre><code class="language-markup">&lt;plugins&gt;
+  &lt;plugin&gt;
+    &lt;groupId&gt;org.eclipse.jetty&lt;/groupId&gt;
+    &lt;artifactId&gt;jetty-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;11.0.24&lt;/version&gt;
+    &lt;configuration&gt;
+      &lt;webApp&gt;
+        &lt;!--    aqui vai o nome do caminho do contexto    --&gt;
+        &lt;contextPath&gt;
+          /expenses-web
+        &lt;/contextPath&gt;
+      &lt;/webApp&gt;
+    &lt;/configuration&gt;
+  &lt;/plugin&gt;
+&lt;/plugins&gt;</code></pre></div></section></article></div></section></div></body></html>
