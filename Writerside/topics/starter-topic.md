@@ -1,72 +1,79 @@
-# Learn Servlet - Module 1
+# Learn Servlet - Módulo 1: Configuração Inicial do Projeto
 
-## Criando o projeto Maven Archetype no IntelliJ
+## 1. Criando o Projeto Maven Archetype no IntelliJ
 
-![Tela de criação de projeto Maven no IntelliJ, mostrando a seleção do archetype e outras configurações.](1741808966839.png)
+Para iniciar nosso projeto de aplicação web Java, vamos usar o Maven Archetype no IntelliJ IDEA.
 
-## Estrutura de Pastas Criada
+![Tela de criação de projeto Maven no IntelliJ, mostrando a interface de seleção do archetype webapp, campos de configuração do projeto e opções avançadas](1741808966839.png)
 
-A estrutura padrão de pastas criada pelo Maven Archetype para um web app inclui a pasta `WEB-INF`, onde ficam as configurações do aplicativo web.
+### 1.1 Passo a Passo para Criação do Projeto
 
-![Estrutura de pastas padrão do Maven Archetype, destacando a pasta WEB-INF.](1741809783581.png)
+1. Abra o IntelliJ IDEA
+2. Clique em "New Project"
+3. Selecione "Maven" na lista de opções à esquerda
+4. Escolha o archetype "maven-archetype-webapp"
+5. Preencha os campos de GroupId, ArtifactId e Version
+6. Clique em "Next" e siga as instruções para finalizar a criação do projeto
 
-No entanto, ainda precisamos criar uma pasta adicional para armazenar o código da aplicação. Para isso, clique com o <kbd>BOTÃO DIREITO DO MOUSE</kbd> na pasta `main`, selecione `New > Directory` e digite `java`. Provavelmente, aparecerá um popup para inserir o nome da pasta, e a IDE pode sugerir automaticamente o nome correto. Pressione Enter para confirmar.
+## 2. Estrutura de Pastas do Projeto
 
-![Criação da pasta 'java' dentro da estrutura do projeto.](1741809988176.png)
+Após a criação, o Maven gera uma estrutura de pastas padrão para aplicações web.
 
-### Entendendo a estrutura
+![Estrutura de pastas padrão do Maven Archetype, mostrando a hierarquia de diretórios incluindo src, main, webapp e WEB-INF](1741809783581.png)
 
-O Maven Archetype para um web app cria uma estrutura de pastas organizada para facilitar o desenvolvimento. Aqui está uma explicação das principais pastas:
+### 2.1 Criando a Pasta 'java'
 
-- **src/main/java**: Onde você coloca o código-fonte Java da aplicação. Esta pasta é criada manualmente, como descrito anteriormente.
+É necessário criar manualmente a pasta 'java' para armazenar o código-fonte da aplicação.
 
-- **src/main/resources**: Armazena recursos como arquivos de configuração que são usados pelo código Java.
+![Interface do IntelliJ mostrando o processo de criação da pasta 'java' dentro do diretório 'main', com o menu contextual aberto](1741809988176.png)
 
-- **src/main/webapp**: Contém os arquivos da aplicação web, como páginas JSP, arquivos HTML, CSS, JavaScript, etc.
+Para criar a pasta 'java':
+1. Clique com o botão direito na pasta 'main'
+2. Selecione "New > Directory"
+3. Digite "java" e pressione Enter
 
-- **src/main/webapp/WEB-INF**: Esta pasta é crucial para a configuração do aplicativo web. Ela contém:
-  - **web.xml**: O arquivo de configuração do servlet, onde você define servlets, filtros, listeners, etc.
-  - Outras configurações específicas do servidor ou da aplicação.
+### 2.2 Entendendo a Estrutura do Projeto
 
-- **src/test/java**: Onde você coloca os testes unitários para o seu código Java.
+A estrutura completa do projeto inclui:
 
-- **pom.xml**: O arquivo de configuração do Maven, onde você define as dependências, plugins, e outras configurações do projeto.
-
-Essa estrutura ajuda a separar o código-fonte, recursos, e configurações, tornando o projeto mais organizado e fácil de gerenciar.
-
+```mermaid
+graph TD
+    A[src] --> B[main]
+    A --> C[test]
+    B --> D[java]
+    B --> E[resources]
+    B --> F[webapp]
+    F --> G[WEB-INF]
+    G --> H[web.xml]
+    C --> I[java]
+    J[pom.xml]
 ```
-src
-├── main
-│   ├── java
-│   ├── resources
-│   └── webapp
-│       └── WEB-INF
-│           └── web.xml
-└── test
-    └── java
-pom.xml
-```
 
-## Tudo precisa de um servidor
+- **src/main/java**: Código-fonte Java da aplicação
+- **src/main/resources**: Arquivos de configuração e recursos
+- **src/main/webapp**: Arquivos web (HTML, CSS, JS, JSP)
+- **src/main/webapp/WEB-INF**: Configurações do aplicativo web
+- **src/test/java**: Testes unitários
+- **pom.xml**: Configuração do Maven
 
-Para fazermos o nosso **web app** em java funcionar é preciso que utilizemos um servidor, existem dezenas de servidores, eles variam em seus tipos como mulheres variam, tem as mais morenas as mais loiras, etc.
+## 3. Configuração do Servidor
 
-Neste caso eles variam dois aspectos - para nossa abordagem iremos utilizar somente esses dois aspectos:
+Para executar nossa aplicação web, precisamos de um servidor.
 
-- Tem os servidores mais gordinhas, aquelas que vem com gordura a mais, ou seja, funções do Java EE a mais, coisa que só é preciso normalmente quando tu quer algo mais robusto
-- Tem os mais slim, que são os aquelas que se adequa ao que queremos tendo em vista que não possuem todas as dezenas de coisas que o Java EE oferece, ou seja são menos robustos
+### 3.1 Tipos de Servidores
 
-Vamos utilizar o Jet
+Existem dois tipos principais de servidores para nossa aplicação:
 
-### Instalando o plugin do Jet no Intellij
+1. **Servidores Robustos**: Com muitas funcionalidades do Java EE
+2. **Servidores Leves**: Com funcionalidades básicas, ideais para projetos menores
 
-Adicione estas linhas dentro do `pom.xml` para fazermos o uso do plugin do Jet:
+### 3.2 Instalando o Plugin Jetty
+
+Vamos usar o Jetty, um servidor leve e eficiente. Adicione o seguinte ao `pom.xml`:
 
 ```xml
 <build>
     <finalName>despesas-web</finalName>
-
-    <!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-maven-plugin -->
     <plugins>
         <plugin>
             <groupId>org.eclipse.jetty</groupId>
@@ -77,20 +84,29 @@ Adicione estas linhas dentro do `pom.xml` para fazermos o uso do plugin do Jet:
 </build>
 ```
 
-Ao atualizar as dependencias do Maven, com <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>O</kbd>
+### 3.3 Atualizando Dependências
 
-![1741812889774.png](1741812889774.png)
+Após adicionar o plugin, atualize as dependências do Maven:
 
-Ao apertar em `Run` vá ao navegador e acesse `http://localhost:8080/`:
+![Tela do IntelliJ mostrando o processo de atualização das dependências do Maven, com destaque para o botão de atualização](1741812889774.png)
 
-![1741812998167.png](1741812998167.png)
+Pressione <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>O</kbd> para atualizar.
 
+### 3.4 Executando o Servidor
 
-> A porta padrão que o Jetty usa é a `8080`, mas caso estiver em uso é possivel mudar para que ele acesse outra porta
+Após a configuração:
 
-## Definindo contextos
+1. Clique em "Run"
+2. Acesse `http://localhost:8080/` no navegador
 
-Para definirmos os contextos, seria como definir as aplicações, podemos fazer com está configuração no `pom.xml`:
+![Tela do navegador mostrando a página inicial do Jetty, indicando que o servidor está rodando corretamente](1741812998167.png)
+
+> Nota: A porta padrão do Jetty é 8080, mas pode ser alterada se necessário.
+> {style="warning"}
+
+## 4. Definindo Contextos
+
+Para configurar o contexto da aplicação, adicione o seguinte ao `pom.xml`:
 
 ```xml
 <plugins>
@@ -100,12 +116,11 @@ Para definirmos os contextos, seria como definir as aplicações, podemos fazer 
     <version>11.0.24</version>
     <configuration>
       <webApp>
-        <!--    aqui vai o nome do caminho do contexto    -->
-        <contextPath>
-          /expenses-web
-        </contextPath>
+        <contextPath>/expenses-web</contextPath>
       </webApp>
     </configuration>
   </plugin>
 </plugins>
 ```
+
+Isso define o caminho de contexto da aplicação como `/expenses-web`.

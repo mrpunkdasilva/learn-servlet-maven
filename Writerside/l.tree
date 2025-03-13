@@ -6,5 +6,9 @@
                  name="learn-servlet"
                  start-page="starter-topic.md">
 
-    <toc-element topic="starter-topic.md"/>
+    <toc-element topic="starter-topic.md">
+        <toc-element topic="Criando-a-primeira-Servlet.md">
+            <toc-element topic="Mão-na-enxada.md"/>
+        </toc-element>
+    </toc-element>
 </instance-profile>
