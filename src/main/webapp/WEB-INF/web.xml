@@ -4,18 +4,4 @@
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-  <servlet>
-    <!--  nome que vai ser associado a classe  -->
-    <servlet-name>firstServlet</servlet-name>
-    <!--  nome completo da classe: pacote.NomeDaClasse  -->
-    <servlet-class>universe.punkdomus.FirstServlet</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <!--  nome que associei a classe  -->
-    <servlet-name>firstServlet</servlet-name>
-    <!--  o padrão da URL que vai ser usada para chamar está classe que foi associada  -->
-    <url-pattern>/firstServlet</url-pattern>
-  </servlet-mapping>
-
 </web-app>

@@ -120,16 +120,21 @@ Atualize o arquivo `web.xml` em `webapp/WEB-INF/` para a versão mais recente:
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-
-    <servlet>
+    
+    
+     <servlet-mapping>
+        <!--  nome que associei a classe  -->
         <servlet-name>firstServlet</servlet-name>
-        <servlet-class>universe.punkdomus.FirstServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>firstServlet</servlet-name>
+        <!--  o padrão da URL que vai ser usada para chamar está classe que foi associada  -->
         <url-pattern>/firstServlet</url-pattern>
-    </servlet-mapping>
+        <!--    podemos ter diversos padrãoes para a busca da URL     /-->
+        <url-pattern>/aizedamanga</url-pattern>
+        <!--    
+            podemos também definir de modo generico e com isso usamos o asterisco, 
+            neste caso qualquer endereço que termine com .asp será reconhecido para esse servlet   
+        /-->
+        <url-pattern>/*.asp</url-pattern>
+      </servlet-mapping>
 
 </web-app>
 ```
@@ -160,4 +165,42 @@ sequenceDiagram
     Servlet->>Servlet: Processa requisição
     Servlet->>Servidor: Retorna resposta HTML
     Servidor->>Cliente: Envia resposta HTTP
+```
+
+## 5. Atualizando o mapeadmento de rotas
+
+Com o advento das versões posteriores, não se precisa mais usar do modo que vimos em [](Mão-na-enxada.md#3-1-configurando-o-web-xml), agora podemos fazer isso diretamente na classe.
+
+<note>
+
+Para isso usamos `annotations` que são metadados que o Java consegue executar em tempo de execução e executar alguma ação
+- Um exemplo do que já foi feito é o cor `@Override` isto é uma annotation. Anotações se dão com este simbolo: `@` 
+
+</note>
+
+### Uma única rota
+
+Para definirmos a URL na classe usamos:
+
+```java
+// BASTA COLOCAR ESSA ANNOTATION E O NOME DO PADRÃO
+@WebServlet("/secondServlet")
+public class FirstServlet extends HttpServlet {
+    //...
+}
+```
+
+### Mais de uma rota
+
+Podemos fazer o mesmo que fizemos no arquivo `web.xml` onde definimos mais de uma rota ao servlet, mas com annotation:
+- Basta passarmos um array de padrões no parametro `urlPattern`
+
+```java
+@WebServlet(urlPatterns={
+        "/thirdServlet",
+        "/helloServlet"
+})
+public class FirstServlet extends HttpServlet {
+    //...
+}
 ```
